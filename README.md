@@ -1,12 +1,13 @@
 # netrc
 
-[![crates.io](crates-badge)](crate-url)
-[![Documentation](doc-badge)](doc-url)
-[![MIT licensed](mit-badge)](mit-url)
-[![CI](actions-badge)](actions-url)
+[![crates.io][crates-badge]](crate-url)
+[![Documentation][doc-badge]](doc-url)
+[![MIT licensed][mit-badge]](mit-url)
+[![CI][actions-badge]](actions-url)
 
-A well-tested [netrc](netrc-url) library for Rust, with support for [Reqwest](reqwest-url)
-via [Reqwest Middleware](reqwest-middleware-url).
+A well-tested [netrc](https://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-file.html)
+library for Rust, with support for [Reqwest](https://crates.io/crates/reqwest)
+via [Reqwest Middleware](https://crates.io/crates/reqwest-middleware).
 
 [crates-badge]: https://img.shields.io/crates/v/rust-netrc.svg
 [crate-url]: https://crates.io/crates/rust-netrc
@@ -14,12 +15,8 @@ via [Reqwest Middleware](reqwest-middleware-url).
 [doc-url]: https://docs.rs/rust-netrc
 [mit-badge]: https://img.shields.io/crates/l/rust-netrc.svg
 [mit-url]: ./LICENSE
-[actions-badge]: https://github.com/gribouille/netrc/workflows/CI/badge.svg
-[actions-url]: https://github.com/gribouille/netrc/actions?query=workflow%3ACI+branch%3Amaster
-[netrc-url]: https://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-file.html
-[serde-url]: https://crates.io/crates/serde
-[reqwest-url]: https://crates.io/crates/reqwest
-[reqwest-middleware-url]: https://crates.io/crates/reqwest-middleware
+[actions-badge]: https://github.com/gribouille/netrc/actions/workflows/rust.yml/badge.svg
+[actions-url]: https://github.com/gribouille/netrc/actions/workflows/rust.yml
 
 ## Usage
 
