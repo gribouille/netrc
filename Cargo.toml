@@ -1,0 +1,16 @@
+[package]
+name = "netrc"
+version = "0.1.0"
+description = "netrc support for Rust with support for reqwest"
+keywords = ["netrc", "reqwest", "http", "client"]
+authors = ["Hakim Taklanti <gribouille.git@gmail.com>"]
+edition = "2021"
+categories = ["network-programming"]
+readme = "README.md"
+repository = "https://github.com/gribouille/netrc"
+documentation = "https://docs.rs/rust-netrc"
+license = "MIT"
+exclude = ["/.github"]
+
+[dependencies]
+thiserror = "1.0.56"
