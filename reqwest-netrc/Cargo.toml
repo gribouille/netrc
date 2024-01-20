@@ -1,6 +1,6 @@
 [package]
 name = "reqwest-netrc"
-version = "0.1.0"
+version = "0.1.1"
 description = "netrc support for Rust with support for reqwest"
 keywords = ["netrc", "reqwest", "http", "client"]
 authors = ["Hakim Taklanti <gribouille.git@gmail.com>"]
@@ -13,7 +13,7 @@ license = "MIT"
 
 
 [dependencies]
-rust-netrc = { path = "..", version = "0.1.0" }
+rust-netrc = { path = "..", version = "0.1.1" }
 reqwest-middleware = "0.2.4"
 
 [dev-dependencies]

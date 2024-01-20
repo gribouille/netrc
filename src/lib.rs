@@ -83,16 +83,13 @@ impl Netrc {
     /// Search a netrc file.
     ///
     /// Look up the `NETRC` environment variable if it is defined else that the
-    /// default `~/.netrc` file.
+    /// default `$HOME/.netrc` file.
     pub fn get_file() -> Option<PathBuf> {
-        let file = std::env::var("NETRC").unwrap_or(String::from("~/.netrc"));
-
-        let p = Path::new(&file);
-        if p.exists() {
-            Some(p.to_path_buf())
-        } else {
-            None
-        }
+        std::env::var("NETRC")
+            .map(|x| PathBuf::from(&x))
+            .or(std::env::var("HOME").map(|h| Path::new(&h).join(".netrc")))
+            .ok()
+            .and_then(|f| if f.exists() { Some(f) } else { None })
     }
 }
 
