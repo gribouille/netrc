@@ -38,7 +38,7 @@ fn main() {
 }
 ```
 
-With [Reqwest](reqwest-url):
+With `reqwest`:
 
 TODO
 
