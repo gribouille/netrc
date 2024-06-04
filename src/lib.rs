@@ -33,6 +33,8 @@ pub use netrc::{Authenticator, Netrc};
 use std::fs;
 use std::io;
 use std::io::ErrorKind;
+#[cfg(windows)]
+use std::iter::repeat;
 use std::path::{Path, PathBuf};
 use std::result;
 
@@ -82,14 +84,21 @@ impl Netrc {
 
     /// Search a netrc file.
     ///
-    /// Look up the `NETRC` environment variable if it is defined else that the
-    /// default `$HOME/.netrc` file.
+    /// Look up the `NETRC` environment variable if it is defined else use the .netrc (or _netrc
+    /// file on windows) in the user's home directory.
     pub fn get_file() -> Option<PathBuf> {
-        std::env::var("NETRC")
-            .map(|x| PathBuf::from(&x))
-            .or(std::env::var("HOME").map(|h| Path::new(&h).join(".netrc")))
-            .ok()
-            .and_then(|f| if f.exists() { Some(f) } else { None })
+        let env_var = std::env::var("NETRC").map(PathBuf::from);
+
+        #[cfg(windows)]
+        let default = std::env::var("USERPROFILE")
+            .into_iter()
+            .flat_map(|home| repeat(home).zip([".netrc", "_netrc"]))
+            .map(|(home, file)| PathBuf::from(home).join(file));
+
+        #[cfg(not(windows))]
+        let default = std::env::var("HOME").map(|home| PathBuf::from(home).join(".netrc"));
+
+        env_var.into_iter().chain(default).find(|f| f.exists())
     }
 }
 
