@@ -13,7 +13,7 @@ license = "MIT"
 
 
 [dependencies]
-rust-netrc = { path = "..", version = "0.1.1" }
+rust-netrc = { path = "..", version = "0.1.2" }
 reqwest-middleware = "0.3.3"
 
 [dev-dependencies]
