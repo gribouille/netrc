@@ -87,7 +87,9 @@ impl Netrc {
     /// Look up the `NETRC` environment variable if it is defined else use the .netrc (or _netrc
     /// file on windows) in the user's home directory.
     pub fn get_file() -> Option<PathBuf> {
-        let env_var = std::env::var("NETRC").map(PathBuf::from);
+        let env_var = std::env::var("NETRC")
+            .map(PathBuf::from)
+            .map(|f| shellexpand::path::tilde(&f).into_owned());
 
         #[cfg(windows)]
         let default = std::env::var("USERPROFILE")
