@@ -1,6 +1,6 @@
 [package]
 name = "reqwest-netrc"
-version = "0.1.2"
+version = "0.1.3"
 description = "netrc support for Rust with support for reqwest"
 keywords = ["netrc", "reqwest", "http", "client"]
 authors = ["Hakim Taklanti <gribouille.git@gmail.com>"]
