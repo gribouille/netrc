@@ -14,9 +14,9 @@ license = "MIT"
 
 [dependencies]
 rust-netrc = { path = "..", version = "0.1.2" }
-reqwest-middleware = "0.4.0"
+reqwest-middleware = "0.5.0"
 
 [dev-dependencies]
 tokio = { version = "1.35.1", features = ["macros"] }
 wiremock = "0.6.2"
-reqwest = "0.12.7"
+reqwest = { version = "0.13.1", features = ["rustls"] }
